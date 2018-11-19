@@ -13,14 +13,16 @@
 </html>
 <script>
   var b = false
+  var i = 1;
   var a = function() {
     if (b) {
     } else {
       layer.confirm(
-        '袁甲是傻逼吗？',
+        '袁甲是傻逼吗？第'+ i + '次',
         {
           btn: ['是', '不是'], //按钮,
           cancel: function() {
+            i++;
             a()
           }
         },
@@ -29,6 +31,7 @@
           layer.msg('的确是傻逼', { icon: 1 })
         },
         function() {
+          i++;
           a()
         }
       )
