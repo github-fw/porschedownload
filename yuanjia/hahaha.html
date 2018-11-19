@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="./jquery-3.2.1.min.js"></script>
+    <script src="./layer/layer.js"></script>
+  </body>
+</html>
+<script>
+  var b = false
+  var a = function() {
+    if (b) {
+    } else {
+      layer.confirm(
+        '袁甲是傻逼吗？',
+        {
+          btn: ['是', '不是'], //按钮,
+          cancel: function() {
+            a()
+          }
+        },
+        function() {
+          b = true
+          layer.msg('的确是傻逼', { icon: 1 })
+        },
+        function() {
+          a()
+        }
+      )
+    }
+  }
+  a()
+</script>
